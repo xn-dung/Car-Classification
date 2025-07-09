@@ -1,0 +1,315 @@
+/* ---------------------------------- */
+/*          DESIGN TOKENS             */
+/* ---------------------------------- */
+/* A bright and energetic theme using vibrant teal and mango accents. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Colors (Bright & Energetic Palette) */
+  --color-primary: #00c6ab; /* Vibrant Teal */
+  --color-primary-dark: #00a896;
+  --color-primary-light: rgba(0, 198, 171, 0.1);
+  --color-accent: #ff8c42; /* Energetic Mango */
+  --color-text: #2c3e50; /* Dark, soft black */
+  --color-text-light: #8a8a8a;
+  --color-background: #f9faff; /* Very light blue/gray */
+  --color-surface: #ffffff;
+  --color-border: #e8eaf0;
+  --color-success: #25d366; /* Bright Green */
+  --color-error: #e74c3c; /* Clear Red */
+
+  /* Typography */
+  --font-family-base: 'Poppins', sans-serif;
+
+  /* Spacing & Sizing */
+  --spacing-unit: 8px;
+  --border-radius-small: 4px;
+  --border-radius-medium: 12px;
+  --border-radius-large: 16px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(44, 62, 80, 0.05);
+  --shadow-md: 0 10px 25px -5px rgba(44, 62, 80, 0.07), 0 8px 10px -6px rgba(44, 62, 80, 0.07);
+
+  /* Transitions */
+  --transition-fast: all 0.2s ease-in-out;
+  --transition-medium: all 0.3s ease-in-out;
+}
+
+/* ---------------------------------- */
+/*             DARK MODE              */
+/* ---------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #00e0c0;
+    --color-primary-dark: #00c6ab;
+    --color-accent: #ff9a59;
+    --color-text: #e8eaf0;
+    --color-text-light: #b0b8c4;
+    --color-background: #1a1d24;
+    --color-surface: #252831;
+    --color-border: #3c414e;
+    --color-success: #25d366;
+    --color-error: #ff5252;
+  }
+}
+
+/* ---------------------------------- */
+/*           GENERAL STYLES           */
+/* ---------------------------------- */
+body {
+  font-family: var(--font-family-base);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--color-background);
+  background-image: radial-gradient(circle at 1% 1%, var(--color-primary-light) 0%, transparent 30%),
+                    radial-gradient(circle at 99% 99%, var(--color-primary-light) 0%, transparent 40%);
+  color: var(--color-text);
+  line-height: 1.7;
+  transition: background-color var(--transition-medium), color var(--transition-medium);
+}
+
+.container {
+  background: var(--color-surface);
+  padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 5);
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  max-width: 550px;
+  width: 90%;
+  box-sizing: border-box;
+  border: 1px solid var(--color-border);
+  transition: var(--transition-medium);
+}
+
+h1 {
+  color: var(--color-text);
+  margin-bottom: calc(var(--spacing-unit) * 4);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 2em;
+}
+
+/* ---------------------------------- */
+/*            COMPONENTS              */
+/* ---------------------------------- */
+
+/* --- Image Preview --- */
+#imagePreview {
+  display: block;
+  max-width: 100%;
+  max-height: 280px;
+  margin: calc(var(--spacing-unit) * 3) auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-medium);
+  object-fit: contain;
+  background-color: var(--color-background);
+  transition: var(--transition-medium);
+}
+
+/* --- Custom File Input --- */
+#imageInput {
+  display: none;
+}
+
+.file-upload-label {
+  display: inline-block;
+  padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 4);
+  margin-bottom: var(--spacing-unit);
+  background-color: transparent;
+  border: 2px dashed var(--color-primary);
+  border-radius: var(--border-radius-medium);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  color: var(--color-primary);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.file-upload-label:hover {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary-dark);
+  color: var(--color-primary-dark);
+  transform: scale(1.02);
+}
+
+#filename-display {
+  display: block;
+  margin-bottom: calc(var(--spacing-unit) * 2.5);
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  min-height: 1.2em;
+  font-style: italic;
+  word-break: break-all;
+}
+
+/* --- Predict Button --- */
+button {
+  background-image: linear-gradient(45deg, var(--color-accent) 0%, var(--color-primary) 100%);
+  color: white;
+  border: none;
+  padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 5);
+  font-size: 1.1rem;
+  border-radius: var(--border-radius-medium);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-weight: 600;
+  margin-top: var(--spacing-unit);
+  box-shadow: 0 4px 15px rgba(0, 198, 171, 0.2);
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 198, 171, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(0, 198, 171, 0.2);
+}
+
+/* --- Results Area --- */
+#result {
+  margin-top: calc(var(--spacing-unit) * 4);
+  text-align: left;
+  font-size: 1rem;
+  padding: calc(var(--spacing-unit) * 3);
+  background-color: var(--color-background);
+  border-radius: var(--border-radius-medium);
+  border: 1px solid var(--color-border);
+  min-height: 100px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease, background-color var(--transition-medium);
+  visibility: hidden;
+  position: relative;
+}
+
+#result.visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+#result .prediction-title {
+  display: block;
+  font-size: 1.25em;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-unit);
+  font-weight: 600;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--spacing-unit);
+}
+
+#result .probabilities-label {
+  display: block;
+  font-weight: 600;
+  margin-top: calc(var(--spacing-unit) * 2);
+  margin-bottom: var(--spacing-unit);
+  color: var(--color-text-light);
+}
+
+#result ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#result li {
+  padding: var(--spacing-unit) calc(var(--spacing-unit) * 0.5);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color var(--transition-fast);
+  border-radius: var(--border-radius-small);
+}
+
+#result li:last-child {
+  border-bottom: none;
+}
+
+#result li:hover {
+  background-color: var(--color-surface);
+}
+
+#result .probability-value {
+  font-weight: 600;
+  color: var(--color-success);
+  background-color: rgba(37, 211, 102, 0.1);
+  padding: 2px 8px;
+  border-radius: var(--border-radius-small);
+  font-size: 0.9em;
+}
+
+/* States: Loading and Error */
+#result.loading,
+#result.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-text-light);
+}
+
+#result.error {
+  color: var(--color-error);
+  font-weight: 600;
+}
+
+/* ---------------------------------- */
+/*            UTILITIES               */
+/* ---------------------------------- */
+.hidden {
+  display: none !important;
+}
+
+/* ---------------------------------- */
+/*           ANIMATIONS               */
+/* ---------------------------------- */
+/* Loading Spinner */
+#result.loading::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 32px;
+  border: 4px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------------------------------- */
+/*           RESPONSIVE DESIGN        */
+/* ---------------------------------- */
+@media (max-width: 600px) {
+  .container {
+    padding: calc(var(--spacing-unit) * 3);
+    width: 95%;
+  }
+
+  h1 {
+    font-size: 1.8em;
+    margin-bottom: calc(var(--spacing-unit) * 3);
+  }
+
+  button, .file-upload-label {
+    width: 100%;
+    font-size: 1rem;
+    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
+  }
+
+  #result {
+    padding: var(--spacing-unit) * 2;
+  }
+}

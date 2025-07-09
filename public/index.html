@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Classifier</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Link đến Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Image Classifier</h1>
+
+        <!-- Thẻ img để hiển thị ảnh xem trước -->
+        <img id="imagePreview" src="#" alt="Image Preview" class="hidden"/>
+
+        <!-- Label hoạt động như nút chọn file tùy chỉnh -->
+        <label for="imageInput" class="file-upload-label">Choose Image</label>
+
+        <!-- Input file thật (bị ẩn bởi CSS) -->
+        <input type="file" id="imageInput" accept="image/*" />
+
+        <!-- Hiển thị tên file đã chọn -->
+        <span id="filename-display">No file chosen</span>
+
+        <!-- Nút thực hiện dự đoán -->
+        <button onclick="predict()">Predict</button>
+
+        <!-- Khu vực hiển thị kết quả hoặc trạng thái -->
+        <div id="result">
+            <!-- Nội dung sẽ được cập nhật bởi JavaScript -->
+        </div>
+    </div>
+
+    <!-- Link đến file JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
