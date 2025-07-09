@@ -17,7 +17,7 @@ This project focuses on fine-grained car classification using the Stanford Cars 
 - Built and deployed a web interface for users to upload car images and receive classification results in real time
 
 ## Training Results
-<img src="assets/training_result.png" alt="Training Log" width="700"/>
+<img src="/assets/training_result.png" alt="Training Log" width="700"/>
 
 ## Web Application Interface
-<img src="assets/web_interface.png" alt="Web Interface" width="600"/>
+<img src="/assets/web_interface.png" alt="Web Interface" width="600"/>
